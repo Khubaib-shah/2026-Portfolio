@@ -100,55 +100,6 @@
 
 
 
-	// 04. Masonary Js//
-	$('.grid').imagesLoaded(function () {
-		let $grid = $('.grid').isotope({
-			itemSelector: '.grid-item',
-			percentPosition: true,
-			masonry: {
-				columnWidth: 1,
-			},
-		});
-
-		// filter items on button click
-		$('.tp-pr-filter').on('click', 'button', function () {
-			let filterValue = $(this).attr('data-filter');
-			$grid.isotope({ filter: filterValue });
-		});
-
-		// 	//for menu active class
-		$('.tp-pr-filter button').on('click', function (event) {
-			$(this).siblings('.active').removeClass('active');
-			$(this).addClass('active');
-			event.preventDefault();
-		});
-
-	});
-
-
-	// 05. magnificPopup img view //
-	$('.popup-image').magnificPopup({
-		type: 'image',
-		gallery: {
-			enabled: true
-		}
-	});
-
-
-	// 06. magnificPopup video view //
-	$(".popup-video").magnificPopup({
-		type: "iframe",
-	});
-
-
-	// 07. Counter Js //
-	new PureCounter();
-	new PureCounter({
-		filesizing: true,
-		selector: ".filesizecount",
-		pulse: 2,
-	});
-
 	// 08. back-to-top //
 	function back_to_top() {
 
