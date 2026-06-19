@@ -57,14 +57,14 @@
 	"use strict";
 
 	var windowOn = $(window);
-	
-    // 01. mobile menu Js//
+
+	// 01. mobile menu Js//
 	let tpMenuWrap = $('.tp-mobile-menu-active > ul').clone();
 	let tpSideMenu = $('.tp-offcanvas-menu nav');
 	tpSideMenu.append(tpMenuWrap);
 	if ($(tpSideMenu).find('.submenu, .mega-menu').length != 0) {
-	   $(tpSideMenu).find('.submenu, .mega-menu').parent().append
-	   ('<button class="tp-menu-close"><i class="fa-solid fa-plus"></i></button>');
+		$(tpSideMenu).find('.submenu, .mega-menu').parent().append
+			('<button class="tp-menu-close"><i class="fa-solid fa-plus"></i></button>');
 	}
 	let sideMenuList = $('.tp-offcanvas-menu nav > ul > li button.tp-menu-close, .tp-offcanvas-menu nav > ul li.has-dropdown > a, .tp-offcanvas-menu nav > ul li.has-dropdown > ul > li.menu-item-has-children > a');
 	$(sideMenuList).on('click', function (e) {
@@ -74,7 +74,7 @@
 	});
 
 	// 02. header dropdown static Js//
-	$('.tp-header-dropdown nav ul li').each(function() {
+	$('.tp-header-dropdown nav ul li').each(function () {
 		if ($(this).find('.mega-menu').length > 0) {
 			$(this).addClass('p-static');
 		}
@@ -116,7 +116,7 @@
 			$grid.isotope({ filter: filterValue });
 		});
 
-	// 	//for menu active class
+		// 	//for menu active class
 		$('.tp-pr-filter button').on('click', function (event) {
 			$(this).siblings('.active').removeClass('active');
 			$(this).addClass('active');
@@ -140,7 +140,7 @@
 		type: "iframe",
 	});
 
-	
+
 	// 07. Counter Js //
 	new PureCounter();
 	new PureCounter({
@@ -151,11 +151,11 @@
 
 	// 08. back-to-top //
 	function back_to_top() {
-		
+
 		let btn = $('#back_to_top');
 		let btn_wrapper = $('.back-to-top-wrapper');
 
-		windowOn.on('scroll',function () {
+		windowOn.on('scroll', function () {
 			if (windowOn.scrollTop() > 300) {
 				btn_wrapper.addClass('back-to-top-btn-show');
 			} else {
@@ -169,7 +169,7 @@
 		});
 	}
 	back_to_top();
-	
+
 
 	// 09. Smooth Scroll Js //
 	function smoothSctoll() {
@@ -200,14 +200,14 @@
 	$(".tp-offcanvas-open-btn").on("click", function () {
 		$(".tp-offcanvas-area, .tp-offcanvas-2-area, .body-overlay").addClass("opened");
 	});
-	
+
 	$(".tp-search-open-btn").on("click", function () {
 		$(".tp-search-area, .body-overlay").addClass("opened");
 	});
-	
-  
+
+
 	// 12. Close Handlers //
-	$(".tp-offcanvas-close-btn, .tp-offcanvas-2-close-btn, .tp-search-close-btn, .body-overlay").on("click", function () {
+	$(".tp-offcanvas-close-btn, .tp-offcanvas-2-close-btn, .tp-search-close-btn, .body-overlay, .tp-offcanvas-menu nav ul li a").on("click", function () {
 		$(".tp-offcanvas-area, .tp-offcanvas-2-area, .tp-search-area, .cartmini__area").removeClass("opened cartmini-opened");
 		$(".body-overlay").removeClass("opened");
 	});
@@ -221,7 +221,7 @@
 		if (typeof ScrollToPlugin !== 'undefined') _plugins.push(ScrollToPlugin);
 		if (_plugins.length) gsap.registerPlugin.apply(gsap, _plugins);
 	}
-	if(typeof ScrollSmoother !== 'undefined' && ScrollSmoother.create && $('#smooth-wrapper').length && $('#smooth-content').length){
+	if (typeof ScrollSmoother !== 'undefined' && ScrollSmoother.create && $('#smooth-wrapper').length && $('#smooth-content').length) {
 		try {
 			ScrollSmoother.create({
 				smooth: 1.35,
@@ -229,7 +229,7 @@
 				smoothTouch: .1,
 				ignoreMobileResize: true
 			});
-		} catch(e) {
+		} catch (e) {
 			console.warn('ScrollSmoother init failed:', e);
 		}
 	}
@@ -303,11 +303,11 @@
 
 			// default value
 			let defaultStart = "top 15%";
-			let defaultEnd   = "bottom 99%";
+			let defaultEnd = "bottom 99%";
 
 			// if attribute exists → override
 			let startVal = section.dataset.start || defaultStart;
-			let endVal   = section.dataset.end   || defaultEnd;
+			let endVal = section.dataset.end || defaultEnd;
 
 			tl.to(section, {
 				scrollTrigger: {
@@ -329,7 +329,7 @@
 
 
 	// 17. md-faq-accordion //
-	$('.md-faq-accordion, .accordion-items').on("click", function(){
+	$('.md-faq-accordion, .accordion-items').on("click", function () {
 		$(this).addClass('faq-active').siblings().removeClass('faq-active');
 	});
 
@@ -667,33 +667,33 @@
 			ease: Power2.out
 		});
 	});
-	
+
 
 
 	// 30. process expand img
-    const items = document.querySelectorAll('.dgm-process-item');
+	const items = document.querySelectorAll('.dgm-process-item');
 
-    if (items.length > 0) {
-        items[0].classList.add('active');
-    }
+	if (items.length > 0) {
+		items[0].classList.add('active');
+	}
 
-    items.forEach(item => {
-        // Hover effect
-        item.addEventListener('mouseenter', () => {
-            removeActive();
-            item.classList.add('active');
-        });
+	items.forEach(item => {
+		// Hover effect
+		item.addEventListener('mouseenter', () => {
+			removeActive();
+			item.classList.add('active');
+		});
 
-        // Click effect (optional)
-        item.addEventListener('click', () => {
-            removeActive();
-            item.classList.add('active');
-        });
-    });
+		// Click effect (optional)
+		item.addEventListener('click', () => {
+			removeActive();
+			item.classList.add('active');
+		});
+	});
 
-    function removeActive() {
-        items.forEach(el => el.classList.remove('active'));
-    }
+	function removeActive() {
+		items.forEach(el => el.classList.remove('active'));
+	}
 
 
 
@@ -714,15 +714,18 @@
 			var $img = $container.find("img").first();
 			var imgURL = $img.attr("src");
 
-			// image real height
-			var imgHeight = $img.outerHeight();
+			// hide the image as we use background-image on container
+			$img.hide();
 
-			// container height = image height
+			// Use a standard aspect ratio for portfolio items to avoid huge empty spaces
+			// and use background-size: contain so it doesn't crop the actual laptop/phone
 			$container.css({
-				height: imgHeight + "px",
+				aspectRatio: "16 / 9", // You can adjust this to 16/9 if preferred
+				width: "100%",
 				backgroundImage: "url(" + imgURL + ")",
-				backgroundSize: "cover",
-				backgroundPosition: "center center"
+				backgroundSize: "contain",
+				backgroundRepeat: "no-repeat",
+				backgroundPosition: "center bottom"
 			});
 
 			// apply ripples
@@ -732,7 +735,6 @@
 				imageUrl: imgURL
 			});
 
-			$img.hide();
 		});
 	});
 
@@ -762,10 +764,10 @@
 		}
 	}
 
-	
+
 
 	// 34. TP Text Invert //
-	function tp_text_invert(){
+	function tp_text_invert() {
 		const split = new SplitText(".tp_text_invert", { type: "lines" });
 		split.lines.forEach((target) => {
 			gsap.to(target, {
@@ -778,12 +780,12 @@
 					end: "bottom center"
 				}
 			});
-		});	
+		});
 	}
-	
+
 
 	// 35. TP Text Invert 2 //
-	function tp_text_invert_2(){
+	function tp_text_invert_2() {
 		const split_2 = new SplitText(".tp_text_invert_2", { type: "lines" });
 		split_2.lines.forEach((target) => {
 			gsap.to(target, {
@@ -796,12 +798,12 @@
 					end: "bottom center"
 				}
 			});
-		});	
+		});
 	}
 
 
 	// 36. TP Text Invert 3 //
-	function tp_text_invert_3(){
+	function tp_text_invert_3() {
 		const split_3 = new SplitText(".tp_text_invert_3", { type: "lines" });
 		split_3.lines.forEach((target) => {
 			gsap.to(target, {
@@ -814,7 +816,7 @@
 					end: "bottom center"
 				}
 			});
-		});	
+		});
 	}
 
 
@@ -822,7 +824,7 @@
 	pr.add("(min-width: 767px)", () => {
 		function perspective() {
 			if ($('.dgs-project-item-wrap').length) {
-				gsap.set('.dgs-project-thumb', { perspective: 60,});
+				gsap.set('.dgs-project-thumb', { perspective: 60, });
 				$('.dgs-project-thumb img').each(function () {
 					var slide = $(this);
 					gsap.fromTo(this, {
@@ -882,38 +884,38 @@
 	// 39. Rendom text genarator in hover //
 	document.querySelectorAll('.codetext').forEach((t) => {
 		const arr1 = t.innerHTML.split('');
-		const arr2 = arr1.map(() => randChar()); 
-	  
+		const arr2 = arr1.map(() => randChar());
+
 		t.onpointerover = () => {
-		  let step = 0;
-	  
-		  tl.fromTo(
-			t,
-			{ innerHTML: arr2.join('') },
-			{
-			  duration: arr1.length / 30, 
-			  ease: 'power4.in',
-			  delay: 0.1,
-			  onUpdate: () => {
-				const progress = Math.floor(tl.progress() * arr1.length);
-				if (step !== progress) { 
+			let step = 0;
 
-					step = progress;
-					arr1.forEach((_, i) => (arr2[i] = randChar()));
-		
-					let start = arr1.slice(0, progress).join('');
-					let end = arr2.slice(progress).join('');
-		
-					if (t.classList.contains('fromRight')) {
-						start = arr2.slice(0, progress).join('');
-						end = arr1.slice(progress).join('');
-					}
+			tl.fromTo(
+				t,
+				{ innerHTML: arr2.join('') },
+				{
+					duration: arr1.length / 30,
+					ease: 'power4.in',
+					delay: 0.1,
+					onUpdate: () => {
+						const progress = Math.floor(tl.progress() * arr1.length);
+						if (step !== progress) {
 
-					t.innerHTML = start + end; 
+							step = progress;
+							arr1.forEach((_, i) => (arr2[i] = randChar()));
+
+							let start = arr1.slice(0, progress).join('');
+							let end = arr2.slice(progress).join('');
+
+							if (t.classList.contains('fromRight')) {
+								start = arr2.slice(0, progress).join('');
+								end = arr1.slice(progress).join('');
+							}
+
+							t.innerHTML = start + end;
+						}
+					},
 				}
-			  },
-			}
-		  );
+			);
 		};
 	});
 
@@ -924,81 +926,81 @@
 		return chars[Math.floor(Math.random() * chars.length)];
 	}
 
-  // 41. Split text into characters using SplitType
-    const text = new SplitType('.text', { types: 'chars' });
-    const length = text.chars.length;
+	// 41. Split text into characters using SplitType
+	const text = new SplitType('.text', { types: 'chars' });
+	const length = text.chars.length;
 
-    text.chars.forEach((char, index) => {
-        $(char).css('font-weight', (index + 1) * 0.1 * 800);
+	text.chars.forEach((char, index) => {
+		$(char).css('font-weight', (index + 1) * 0.1 * 800);
 
-        $(char).on('mouseover', function () {
-          	animate(index);
-        });
-    });
+		$(char).on('mouseover', function () {
+			animate(index);
+		});
+	});
 
-    function calculate(index, length) {
-        const positions = Array.from(Array(length).keys());
-        const left = positions.slice(0, index - 1);
-        const right = positions.slice(index);
-        return { left, right };
-    }
+	function calculate(index, length) {
+		const positions = Array.from(Array(length).keys());
+		const left = positions.slice(0, index - 1);
+		const right = positions.slice(index);
+		return { left, right };
+	}
 
-    function weightByIndex(index) {
-        return (index + 1) * 90;
-    }
+	function weightByIndex(index) {
+		return (index + 1) * 90;
+	}
 
-    function animate(index) {
-        const { left, right } = calculate(index + 1, length);
+	function animate(index) {
+		const { left, right } = calculate(index + 1, length);
 
-        tl.to(text.chars[index], {
+		tl.to(text.chars[index], {
 			fontWeight: weightByIndex(0),
-        }, "way");
+		}, "way");
 
-        text.chars.slice(0, index - 1).reverse().forEach((char, i) => {
+		text.chars.slice(0, index - 1).reverse().forEach((char, i) => {
 			tl.to(char, {
 				fontWeight: weightByIndex(i),
 			}, "way");
-        });
+		});
 
-        text.chars.slice(index).forEach((char, i) => {
+		text.chars.slice(index).forEach((char, i) => {
 			tl.to(char, {
 				fontWeight: weightByIndex(i),
 			}, "way");
-        });
-    }
+		});
+	}
 
 
 	// 42. Portfolio Person img moving
 	const img = document.getElementById("pp-hero-person-move");
 
 	if (img) {
-	document.addEventListener("mousemove", (e) => {
-		
-		let x = (window.innerWidth / 2 - e.clientX) / 25;
-		let y = (window.innerHeight / 2 - e.clientY) / 25;
-		
-		img.style.transform = `translate(${x}px, ${y}px)`;
-	});
+		document.addEventListener("mousemove", (e) => {
+
+			let x = (window.innerWidth / 2 - e.clientX) / 25;
+			let y = (window.innerHeight / 2 - e.clientY) / 25;
+
+			img.style.transform = `translate(${x}px, ${y}px)`;
+		});
 	}
 
-	
+
 	// 43. scroll-scale-up-img
 	document.querySelectorAll(".scale-up-img").forEach((section) => {
 		let tl = gsap.timeline({
-		  scrollTrigger: {
-			trigger: section,
-			start: "top bottom",
-			end: "bottom center",
-			scrub: 1,
-			markers: false,
-		  },
+			scrollTrigger: {
+				trigger: section,
+				start: "top bottom",
+				end: "bottom center",
+				scrub: 1,
+				markers: false,
+			},
 		});
-	  
+
 		tl.to(section.querySelector(".scale-up"), {
-		  scale: 1.15,
-		  duration: 1,
+			scale: 1.15,
+			duration: 1,
 		});
-	  });
+	});
 
 
 	// 44. Handle Data Speed Attributes
@@ -1023,7 +1025,7 @@
 
 	window.addEventListener("resize", handleDataSpeedAttr);
 
-	$(function(){
+	$(function () {
 		tp_text_invert();
 		tp_text_invert_2();
 		tp_text_invert_3();
