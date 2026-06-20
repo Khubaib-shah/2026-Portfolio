@@ -669,7 +669,7 @@
 			$img.hide();
 
 			// Use a standard aspect ratio for portfolio items to avoid huge empty spaces
-			// and use background-size: contain so it doesn't crop the actual laptop/phone
+			// background-size must be cover to prevent WebGL ripples edge clamping stretch effect
 			$container.css({
 				aspectRatio: "16 / 9", // You can adjust this to 16/9 if preferred
 				width: "100%",
